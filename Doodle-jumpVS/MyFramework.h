@@ -1,6 +1,7 @@
 #pragma once
 #include "Framework.h"
-
+#include "Doodle.h"
+#include "Platform.h"
 
 
 
@@ -8,14 +9,18 @@
 class MyFramework : public Framework {
 public:
 
+	BaseEntity b1;
+	bool jump = true;
+
 	virtual void PreInit(int& width, int& height, bool& fullscreen)
 	{
-		
+		width = mapWidth;
+		height = mapHeight;
 		fullscreen = false;
 	}
 
 	virtual bool Init() {
-		
+		b1 = BaseEntity(standardPlatformPath, 0, 0);
 		return true;
 	}
 
@@ -24,7 +29,18 @@ public:
 	}
 
 	virtual bool Tick() {
-		drawTestBackground();
+
+		b1.draw();
+		
+		//b1.moveUp();
+		// if ((getTickCount() / 1000) % 2)
+		// {
+		// 	b1.moveUp();
+		// }
+		// else
+		// {
+		// 	b1.moveDown();
+		// }
 		return false;
 	}
 

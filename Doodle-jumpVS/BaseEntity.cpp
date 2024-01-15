@@ -1,11 +1,12 @@
 #include "BaseEntity.h"
 
-void BaseEntity::setSize()
+void BaseEntity::setSize(int width, int height)
 {
-	setSpriteSize(m_entitySprite, m_coordinates.first + 100, m_coordinates.second + 100);
+	setSpriteSize(m_entitySprite, width, height);
 }
 
 void BaseEntity::draw()
 {
 	drawSprite(m_entitySprite, getX(), getY());
 }
+
