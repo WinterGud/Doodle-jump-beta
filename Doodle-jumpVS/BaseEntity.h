@@ -1,13 +1,13 @@
 #pragma once
 #include "Framework.h"
 #include <string>
+#include <iostream>
 
 class BaseEntity
 {
 public:
 	BaseEntity() = default;
-	BaseEntity(std::string pathSprite, int _x, int _y) : m_entitySprite(createSprite(pathSprite.c_str()))
-	{}
+	BaseEntity(std::string pathSprite, int _x, int _y) ;
 	int getX() const { return m_x; }
 	int getY() const { return m_y; }
 	void setX(int _x) { m_x = _x; }

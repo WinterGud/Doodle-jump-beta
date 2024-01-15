@@ -1,17 +1,12 @@
 #pragma once
 #include "Framework.h"
 #include "Doodle.h"
-#include "Platform.h"
-
-
-
+#include "Definitions.h"
 
 class MyFramework : public Framework {
 public:
 
-	BaseEntity b1;
-	bool jump = true;
-
+	Doodle d1;
 	virtual void PreInit(int& width, int& height, bool& fullscreen)
 	{
 		width = mapWidth;
@@ -20,7 +15,7 @@ public:
 	}
 
 	virtual bool Init() {
-		b1 = BaseEntity(standardPlatformPath, 0, 0);
+		d1 = Doodle(doodlePath, 0, 0);
 		return true;
 	}
 
@@ -29,18 +24,10 @@ public:
 	}
 
 	virtual bool Tick() {
-
-		b1.draw();
+		drawTestBackground();
+		d1.draw();
+		d1.jump(false);
 		
-		//b1.moveUp();
-		// if ((getTickCount() / 1000) % 2)
-		// {
-		// 	b1.moveUp();
-		// }
-		// else
-		// {
-		// 	b1.moveDown();
-		// }
 		return false;
 	}
 
@@ -52,10 +39,20 @@ public:
 
 	}
 
-	virtual void onKeyPressed(FRKey k) {
+	virtual void onKeyPressed(FRKey k)
+	{
+		if(k == FRKey::LEFT)
+		{
+			d1.moveLeft();
+
+		}
+		if(k == FRKey::RIGHT)
+			d1.moveRight();
 	}
 
-	virtual void onKeyReleased(FRKey k) {
+	virtual void onKeyReleased(FRKey k)
+	{
+		
 	}
 
 	virtual const char* GetTitle() override
