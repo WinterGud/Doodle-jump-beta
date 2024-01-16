@@ -7,7 +7,7 @@ class BaseEntity
 {
 public:
 	BaseEntity() = default;
-	BaseEntity(std::string pathSprite, int _x, int _y) ;
+	BaseEntity(const std::string& pathSprite, int _x, int _y) ;
 	int getX() const { return m_x; }
 	int getY() const { return m_y; }
 	void setX(int _x) { m_x = _x; }

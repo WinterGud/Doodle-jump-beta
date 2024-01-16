@@ -1,18 +1,13 @@
 #pragma once
 #include "Framework.h"
-#include "Doodle.h"
 #include "Definitions.h"
-#include "Platform.h"
-#include "PlatformGenerator.h"
+#include "game.h"
 
 
 
 class MyFramework : public Framework {
 public:
-
-	Doodle d1;
-	PlatformGenerator pg1;
-
+	
 	
 	virtual void PreInit(int& width, int& height, bool& fullscreen)
 	{
@@ -23,8 +18,7 @@ public:
 
 	virtual bool Init()
 	{
-		d1 = Doodle(doodlePath, 0, 650);
-		//pg1 = PlatformGenerator();
+		game.init();
 		return true;
 	}
 
@@ -36,12 +30,8 @@ public:
 	virtual bool Tick()
 	{
 		drawTestBackground();
-		d1.draw();
-		d1.jump();
-		d1.moveLeft();
-		d1.moveRight();
-		//pg1.draw();
-
+		game.draw();
+		game.logic();
 		
 		return false;
 	}
@@ -58,23 +48,18 @@ public:
 
 	virtual void onKeyPressed(FRKey k)
 	{
-		if(k == FRKey::LEFT)
-			d1.setCheckMoveLeft();
-		if(k == FRKey::RIGHT)
-			d1.setCheckMoveRight();
-			
+		game.doodleMoveLeftRight(k);
 	}
 
 	virtual void onKeyReleased(FRKey k)
 	{
-		if(k == FRKey::LEFT)
-			d1.setCheckMoveLeft();
-		if(k == FRKey::RIGHT)
-			d1.setCheckMoveRight();
+		game.doodleMoveLeftRight(k);
 	}
 
 	virtual const char* GetTitle() override
 	{
 		return "Doodle Jump";
 	}
+private:
+	Game game;
 };

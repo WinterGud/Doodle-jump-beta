@@ -6,7 +6,7 @@ class Doodle : public  BaseEntity
 {
 public:
     Doodle() = default;
-    Doodle(std::string path, int _x, int _y);
+    Doodle(const std::string& path, int _x, int _y);
     Doodle& operator=(const Doodle&);
     void moveDown();
     void moveUp();
@@ -27,7 +27,7 @@ private:
     bool checkMoveLeft = false;
     bool checkMoveRight = false;
     int count = 0;
-    const int speedUpDown = 25;
+    const int speedUpDown = 1;
     bool isFall = true;
 };
 

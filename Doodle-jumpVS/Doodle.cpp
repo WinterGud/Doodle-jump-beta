@@ -2,7 +2,7 @@
 
 #include "Platform.h"
 
-Doodle::Doodle(std::string path, int _x, int _y)
+Doodle::Doodle(const std::string& path, int _x, int _y)
     : BaseEntity(path, _x, _y)
 {}
 

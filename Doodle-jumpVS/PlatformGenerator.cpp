@@ -1,20 +1,9 @@
 #include "PlatformGenerator.h"
 
 PlatformGenerator::PlatformGenerator()
-    :   platformVector(numPlatfoms),
-        gen(rd()),
-        randMapWidth(0, mapWidth - Platform::getPlatformWidth()),
-        randHeightToNextPlatform(platformVector.back()->getY(),
-            platformVector.back()->getY()+Doodle::getJumpHight())
-        
+    :   gen(rd()),
+        randMapWidth(0, mapWidth - Platform::getPlatformWidth())
 {
-    platformVector.push_back(std::make_shared<Platform>(standardPlatformPath, randMapWidth(gen), mapHight));
-    for (int i = 1; i < platformVector.size(); i++)
-    {
-        platformVector.push_back(std::make_shared<Platform>(standardPlatformPath,
-            randMapWidth(gen),
-            randHeightToNextPlatform(gen)));
-    }
 }
 
 PlatformGenerator& PlatformGenerator::operator=(const PlatformGenerator& other)
@@ -27,6 +16,22 @@ PlatformGenerator& PlatformGenerator::operator=(const PlatformGenerator& other)
 
 void PlatformGenerator::draw() const
 {
-    for (int i = 0; i < platformVector.size(); i++)
-        platformVector[i]->draw();
+     for (int i = 0; i < platformVector.size(); i++)
+     {
+         platformVector[i]->draw();
+     }
+}
+
+void PlatformGenerator::init()
+{
+     platformVector.push_back(std::make_shared<Platform>(doodlePath, randMapWidth(gen), mapHight));
+     randHeightToNextPlatform = std::uniform_int_distribution<>
+     (-platformVector.back()->getY()-300,
+     platformVector.back()->getY());
+     for (int i = 1; i < numPlatfoms; i++)
+     {
+         platformVector.push_back(std::make_shared<Platform>(standardPlatformPath,
+             randMapWidth(gen),
+             randHeightToNextPlatform(gen)));
+     }
 }

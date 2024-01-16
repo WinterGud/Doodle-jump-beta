@@ -1,8 +1,6 @@
 #include "BaseEntity.h"
 
-#include <set>
-
-BaseEntity::BaseEntity(std::string pathSprite, int _x, int _y)
+BaseEntity::BaseEntity(const std::string& pathSprite, int _x, int _y)
 	: m_entitySprite(createSprite(pathSprite.c_str())), m_x(_x), m_y(_y)
 {
 	std::cout << m_entitySprite;
