@@ -13,9 +13,20 @@ public:
     void shoot();
     void moveLeft();
     void moveRight();
-    void jump(bool);
+    void jump();
+    void setCheckMoveLeft();
+    void setCheckMoveRight();
+    void setIsFall(bool);
+    int getDoodleWidth() const;
+    int getDoodleHeight() const;
 private:
     const int doodleWidth = mapWidth/7;
     const int doodleHeight = mapHeight/7;
-    const int jumpHight = 20;
+    const int jumpHight = 200;
+    bool checkMoveLeft = false;
+    bool checkMoveRight = false;
+    int count = 0;
+    const int speedUpDown = 25;
+    bool isFall = true;
 };
+
