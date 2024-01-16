@@ -145,15 +145,16 @@
     <ClCompile Include="Doodle.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="PlatformGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseEntity.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Doodle.h" />
     <ClInclude Include="GameLoop.h" />
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="MyFramework.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="PlatformGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="inc\" />

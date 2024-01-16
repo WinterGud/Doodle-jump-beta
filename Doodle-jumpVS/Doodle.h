@@ -19,10 +19,11 @@ public:
     void setIsFall(bool);
     int getDoodleWidth() const;
     int getDoodleHeight() const;
+    static int getJumpHight();
 private:
     const int doodleWidth = mapWidth/7;
-    const int doodleHeight = mapHeight/7;
-    const int jumpHight = 200;
+    const int doodleHeight = mapHight/7;
+    static const int jumpHight = 200;
     bool checkMoveLeft = false;
     bool checkMoveRight = false;
     int count = 0;

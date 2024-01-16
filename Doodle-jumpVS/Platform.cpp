@@ -16,12 +16,12 @@ Platform& Platform::operator=(const Platform& other)
     return *this;
 }
 
-int Platform::getPlatformHeight() const
+int Platform::getPlatformHeight()
 {
     return platformHeight;
 }
 
-int Platform::getPlatformWidth() const
+int Platform::getPlatformWidth()
 {
     return platformWidth;
 }

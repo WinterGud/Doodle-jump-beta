@@ -94,3 +94,8 @@ int Doodle::getDoodleWidth() const
 {
     return doodleWidth;
 }
+
+int Doodle::getJumpHight()
+{
+    return jumpHight;
+}

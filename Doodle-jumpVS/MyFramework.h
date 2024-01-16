@@ -3,24 +3,28 @@
 #include "Doodle.h"
 #include "Definitions.h"
 #include "Platform.h"
+#include "PlatformGenerator.h"
+
+
 
 class MyFramework : public Framework {
 public:
 
 	Doodle d1;
-	Platform p1;
+	PlatformGenerator pg1;
+
 	
 	virtual void PreInit(int& width, int& height, bool& fullscreen)
 	{
 		width = mapWidth;
-		height = mapHeight;
+		height = mapHight;
 		fullscreen = false;
 	}
 
 	virtual bool Init()
 	{
-		d1 = Doodle(doodlePath, 0, 0);
-		p1 = Platform(standardPlatformPath, 0, 400);
+		d1 = Doodle(doodlePath, 0, 650);
+		//pg1 = PlatformGenerator();
 		return true;
 	}
 
@@ -36,11 +40,7 @@ public:
 		d1.jump();
 		d1.moveLeft();
 		d1.moveRight();
-		p1.draw();
-		if((d1.getX() <= p1.getPlatformWidth() + p1.getX())
-			&&
-			(d1.getY() + d1.getDoodleHeight() > p1.getY()))
-			d1.setIsFall(false);
+		//pg1.draw();
 
 		
 		return false;
