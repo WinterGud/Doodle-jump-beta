@@ -142,7 +142,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseEntity.cpp" />
+    <ClCompile Include="BlackHole.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Doodle.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Platform.cpp" />
@@ -150,8 +153,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseEntity.h" />
+    <ClInclude Include="BlackHole.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Doodle.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MyFramework.h" />
     <ClInclude Include="Platform.h" />

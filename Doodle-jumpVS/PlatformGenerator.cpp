@@ -24,7 +24,7 @@ void PlatformGenerator::draw() const
 
 void PlatformGenerator::init()
 {
-     platformVector.push_back(std::make_shared<Platform>(doodlePath, randMapWidth(gen), mapHight));
+     platformVector.push_back(std::make_shared<Platform>(standardPlatformPath, randMapWidth(gen), mapHight-100));
      randHeightToNextPlatform = std::uniform_int_distribution<>
      (-platformVector.back()->getY()-300,
      platformVector.back()->getY());

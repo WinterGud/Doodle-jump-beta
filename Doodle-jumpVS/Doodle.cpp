@@ -19,13 +19,13 @@ void Doodle::moveUp()
 void Doodle::moveLeft()
 {
     if(checkMoveLeft)
-        m_x -= 15;
+        m_x -= speedLeftRight;
 }
 
 void Doodle::moveRight()
 {
     if(checkMoveRight)
-        m_x += 15;
+        m_x += speedLeftRight;
 }
 
 Doodle& Doodle::operator=(const Doodle& other)
@@ -42,7 +42,7 @@ void Doodle::jump()
 {
     dy+=0.2;
     m_y += dy;
-    if(m_y > mapHight - jumpHight) dy=-10;
+    if(m_y > mapHight - jumpHight) dy=-speedUpDown/2;
 }
 
 void Doodle::setCheckMoveLeft()
@@ -63,11 +63,6 @@ void Doodle::setCheckMoveRight()
         return;
     }
     checkMoveRight = true;
-}
-
-void Doodle::setIsFall(bool _isFall)
-{
-    isFall = _isFall;
 }
 
 int Doodle::getDoodleHight() const
@@ -91,4 +86,16 @@ void Doodle::moveLeftRight(FRKey key)
         this->setCheckMoveLeft();
     if (key == FRKey::RIGHT)
         this->setCheckMoveRight();
+}
+
+void Doodle::goOutMapWidth()
+{
+    if(m_x + doodleWidth < 0)
+    {
+        m_x = mapWidth;
+    }
+    if(m_x > mapWidth)
+    {
+        m_x = -doodleWidth;
+    }
 }
