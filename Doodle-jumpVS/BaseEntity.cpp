@@ -1,11 +1,19 @@
 #include "BaseEntity.h"
 
-void BaseEntity::setSize()
+BaseEntity::BaseEntity(const std::string& pathSprite, int _x, int _y)
+	: m_entitySprite(createSprite(pathSprite.c_str())), m_x(_x), m_y(_y)
 {
-	setSpriteSize(m_entitySprite, m_coordinates.first + 100, m_coordinates.second + 100);
+	std::cout << m_entitySprite;
+}
+
+
+void BaseEntity::setSize(int width, int height)
+{
+	setSpriteSize(m_entitySprite, width, height);
 }
 
 void BaseEntity::draw()
 {
 	drawSprite(m_entitySprite, getX(), getY());
 }
+
