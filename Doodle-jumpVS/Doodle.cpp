@@ -40,24 +40,9 @@ Doodle& Doodle::operator=(const Doodle& other)
 
 void Doodle::jump()
 {
-    if (isFall)
-    {
-        moveDown();
-    }
-    else
-    {
-        if (count >= jumpHight)
-        {
-            count = 0;
-            isFall = true;
-        }
-        else
-        {
-            count += speedUpDown;
-            moveUp();
-        }
-        
-    }
+    dy+=0.2;
+    m_y += dy;
+    if(m_y > mapHight - jumpHight) dy=-10;
 }
 
 void Doodle::setCheckMoveLeft()
@@ -85,9 +70,9 @@ void Doodle::setIsFall(bool _isFall)
     isFall = _isFall;
 }
 
-int Doodle::getDoodleHeight() const
+int Doodle::getDoodleHight() const
 {
-    return doodleHeight;
+    return doodleHight;
 }
 
 int Doodle::getDoodleWidth() const

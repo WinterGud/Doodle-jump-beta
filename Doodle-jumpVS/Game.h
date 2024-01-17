@@ -12,6 +12,7 @@ public:
     void logic();
     void doodleMove(FRKey key);
     void moveScreen();
+    void checkPlatformsAndOther();
 private:
     Doodle doodle;
     PlatformGenerator platformGenerator;
