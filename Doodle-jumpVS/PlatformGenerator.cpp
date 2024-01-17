@@ -16,9 +16,9 @@ PlatformGenerator& PlatformGenerator::operator=(const PlatformGenerator& other)
 
 void PlatformGenerator::draw() const
 {
-     for (int i = 0; i < platformVector.size(); i++)
+    for (auto it : platformVector)
      {
-         platformVector[i]->draw();
+         it->draw();
      }
 }
 
@@ -34,4 +34,28 @@ void PlatformGenerator::init()
              randMapWidth(gen),
              randHeightToNextPlatform(gen)));
      }
+}
+
+void PlatformGenerator::createNewPlatforms()
+{
+    if (platformVector.size() < numPlatfoms)
+    {
+        for (int i = platformVector.size(); i < numPlatfoms; i++)
+        {
+            platformVector.push_back(std::make_shared<Platform>(standardPlatformPath,
+             randMapWidth(gen),
+             randHeightToNextPlatform(gen)));
+        }
+    }
+}
+
+void PlatformGenerator::deletePlatforms()
+{
+    for (int i = 0; i < platformVector.size(); i++)
+    {
+        if(platformVector[i]->getY() > mapHight)
+        {
+            platformVector.erase(platformVector.begin()+i, platformVector.begin()+i+1);
+        }
+    }
 }

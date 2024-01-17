@@ -99,3 +99,11 @@ int Doodle::getJumpHight()
 {
     return jumpHight;
 }
+
+void Doodle::moveLeftRight(FRKey key)
+{
+    if (key == FRKey::LEFT)
+        this->setCheckMoveLeft();
+    if (key == FRKey::RIGHT)
+        this->setCheckMoveRight();
+}

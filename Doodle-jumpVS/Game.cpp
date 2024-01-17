@@ -17,12 +17,19 @@ void Game::draw()
 void Game::logic()
 {
     doodle.jump();
+
+    platformGenerator.createNewPlatforms();
+    platformGenerator.deletePlatforms();
 }
 
-void Game::doodleMoveLeftRight(FRKey key)
+void Game::doodleMove(FRKey key)
 {
-    if(key == FRKey::LEFT)
-        doodle.setCheckMoveLeft();
-    if(key == FRKey::RIGHT)
-        doodle.setCheckMoveRight();
+    doodle.moveLeftRight(key);
 }
+
+void Game::moveScreen()
+{
+    if(doodle.getY()+doodle.getDoodleHeight() < 1);//dorobutu
+}
+
+

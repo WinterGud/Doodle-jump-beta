@@ -12,6 +12,8 @@ public:
     PlatformGenerator& operator=(const PlatformGenerator&);
     void draw() const;
     void init();
+    void createNewPlatforms();
+    void deletePlatforms();
 private:
     const int numPlatfoms = mapHight / 54 * 1.6;
     std::vector<std::shared_ptr<Platform>> platformVector;

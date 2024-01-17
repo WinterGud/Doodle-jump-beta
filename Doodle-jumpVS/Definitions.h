@@ -6,7 +6,7 @@
 using std::string;
 static const int mapWidth = 600;
 static const int mapHight = 800;
-
+const int moveMapDown = mapHight / 8;
 
 
 const std::string doodlePath = "..\\..\\Doodle-jumpVS\\x64\\Debug\\data\\ghost-right-odskok@2x.png";

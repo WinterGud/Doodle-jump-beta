@@ -10,7 +10,8 @@ public:
     void init();
     void draw();
     void logic();
-    void doodleMoveLeftRight(FRKey key);
+    void doodleMove(FRKey key);
+    void moveScreen();
 private:
     Doodle doodle;
     PlatformGenerator platformGenerator;

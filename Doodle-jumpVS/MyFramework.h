@@ -48,12 +48,12 @@ public:
 
 	virtual void onKeyPressed(FRKey k)
 	{
-		game.doodleMoveLeftRight(k);
+		game.doodleMove(k);
 	}
 
 	virtual void onKeyReleased(FRKey k)
 	{
-		game.doodleMoveLeftRight(k);
+		game.doodleMove(k);
 	}
 
 	virtual const char* GetTitle() override

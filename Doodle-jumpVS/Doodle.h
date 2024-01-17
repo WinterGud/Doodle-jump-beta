@@ -20,6 +20,7 @@ public:
     int getDoodleWidth() const;
     int getDoodleHeight() const;
     static int getJumpHight();
+    void moveLeftRight(FRKey key);
 private:
     const int doodleWidth = mapWidth/7;
     const int doodleHeight = mapHight/7;
