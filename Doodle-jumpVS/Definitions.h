@@ -9,6 +9,6 @@ static const int mapHight = 800;
 const int moveMapDown = mapHight / 8;
 
 
-const std::string doodlePath = "..\\x64\\Debug\\data\\ghost-right-odskok@2x.png";
-const std::string holePath = "..\\x64\\Debug\\data\\ghost-darkness@2x.png";
-const std::string standardPlatformPath = "..\\x64\\Debug\\data\\bck@2x.png";
+const std::string doodlePath = "..\\Data\\ghost-right-odskok@2x.png";
+const std::string holePath = "..\\Data\\ghost-darkness@2x.png";
+const std::string standardPlatformPath = "..\\Data\\bck@2x.png";
