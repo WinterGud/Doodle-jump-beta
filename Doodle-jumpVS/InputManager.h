@@ -12,13 +12,17 @@ public:
     void getMouseButton(FRMouseButton button, bool isReleased);
     void setMouseCoordinates(int& x, int& y, int& relativeX, int& relativeY);
     bool getCheckRightKeyPressed() { return m_checkRightKeyPressed; }
-    bool getcheckLeftKeyPressed() { return m_checkLeftKeyPressed; }
-    bool getcheckUpKeyPressed() { return m_checkUpKeyPressed; }
-    bool getcheckLeftMouseButtonPressed() { return m_checkLeftMouseButtonPressed; }
+    bool getCheckLeftKeyPressed() { return m_checkLeftKeyPressed; }
+    bool getCheckUpKeyPressed() { return m_checkUpKeyPressed; }
+    bool getCheckLeftMouseButtonPressed() { return m_checkLeftMouseButtonPressed; }
     bool getCheckRightKeyReleased() { return m_checkRightKeyReleased; }
-    bool getcheckLeftKeyReleased() { return m_checkLeftKeyReleased; }
-    bool getcheckUpKeyReleased() { return m_checkUpKeyReleased; }
-    bool getcheckLeftMouseButtonReleased() { return m_checkLeftMouseButtonReleased; }
+    bool getCheckLeftKeyReleased() { return m_checkLeftKeyReleased; }
+    bool getCheckUpKeyReleased() { return m_checkUpKeyReleased; }
+    bool getCheckLeftMouseButtonReleased() { return m_checkLeftMouseButtonReleased; }
+    int getMouseX() { return m_xMouse; }
+    int getMouseY() { return m_yMouse; }
+    int getRelativeMouseX() { return m_relativeXMouse; }
+    int getRelativeMouseY() { return m_relativeYMouse; }
 private:
     bool m_checkRightKeyPressed = false;
     bool m_checkRightKeyReleased = false;

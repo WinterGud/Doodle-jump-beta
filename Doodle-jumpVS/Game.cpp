@@ -27,8 +27,12 @@ void Game::logic()
     doodleMove();
     m_doodle->goOutMapWidth();
     checkPlatformsAndOther();
-
+    
     checkGameOver();
+
+    m_bulletManager.tick();
+    m_bulletManager.deleteBullets();
+    bulletShoot();
     
     moveScreen();
     m_platformManager.createNewPlatforms();
@@ -41,7 +45,7 @@ void Game::doodleMove()
     {
         m_doodle->setX(m_doodle->getX() + 10);
     }
-    else if(m_inputManager.getcheckLeftKeyPressed())
+    else if(m_inputManager.getCheckLeftKeyPressed())
     {
         m_doodle->setX(m_doodle->getX() - 10);
     }
@@ -67,6 +71,22 @@ void Game::checkPlatformsAndOther()
             && (m_doodle->getDy() > 0)) m_doodle->setDy(-10);
     }
 }
+
+void Game::bulletShoot()
+{
+    if (m_inputManager.getCheckUpKeyPressed())
+    {
+        m_bulletManager.shootBulletVertical(m_doodle->getX(), m_doodle->getY());
+    }
+    else if(m_inputManager.getCheckLeftMouseButtonPressed())
+    {
+        m_bulletManager.shootBulletToCoordinates(m_doodle->getX(),
+            m_doodle->getY(),
+            m_inputManager.getMouseX(),
+            m_inputManager.getMouseY());
+    }
+}
+
 
 void Game::checkGameOver()
 {
