@@ -14,9 +14,6 @@ public:
     void moveRight();
     void jump();
     void shoot();
-    void setCheckMoveLeft();
-    void setCheckMoveRight();
-    void moveLeftRight(FRKey key);
     double getDy(){ return m_dy; }
     void setDy(double _dy) { m_dy = _dy; }
     void goOutMapWidth();

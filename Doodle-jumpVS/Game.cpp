@@ -9,9 +9,10 @@ Game::Game()
 
 void Game::init()
 {
-    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 0, 100);
+    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 200, 100);
     m_platformManager.init();
 }
+
 
 
 void Game::tick()
@@ -23,19 +24,27 @@ void Game::tick()
 void Game::logic()
 {
     m_doodle->jump();
-    m_doodle->moveLeft();
-    m_doodle->moveRight();
+    doodleMove();
     m_doodle->goOutMapWidth();
     checkPlatformsAndOther();
+
+    checkGameOver();
     
     moveScreen();
     m_platformManager.createNewPlatforms();
     m_platformManager.deletePlatforms();
 }
 
-void Game::doodleMove(FRKey key)
+void Game::doodleMove()
 {
-    m_doodle->moveLeftRight(key);
+    if(m_inputManager.getCheckRightKeyPressed())
+    {
+        m_doodle->setX(m_doodle->getX() + 10);
+    }
+    else if(m_inputManager.getcheckLeftKeyPressed())
+    {
+        m_doodle->setX(m_doodle->getX() - 10);
+    }
 }
 
 void Game::moveScreen()
@@ -56,8 +65,14 @@ void Game::checkPlatformsAndOther()
             && (m_doodle->getY() + DOODLE_HEIGHT > it->getY())
             && (m_doodle->getY() + DOODLE_HEIGHT < it->getY() + PLATFORM_HEIGHT)
             && (m_doodle->getDy() > 0)) m_doodle->setDy(-10);
-            
     }
 }
 
+void Game::checkGameOver()
+{
+    if(m_doodle->getY() + DOODLE_HEIGHT > MAP_WIDTH)
+    {
+        m_gameOver = true;
+    }
+} 
 

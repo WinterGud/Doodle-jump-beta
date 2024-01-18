@@ -30,30 +30,29 @@ public:
 	virtual bool Tick()
 	{
 		drawTestBackground();
-		m_game.tick();
 		m_game.logic();
-		
+		m_game.tick();
 		return false;
 	}
 
 	virtual void onMouseMove(int x, int y, int xrelative, int yrelative)
 	{
-
+		m_game.getInputManager().setMouseCoordinates(x, y, xrelative, yrelative);
 	}
 
 	virtual void onMouseButtonClick(FRMouseButton button, bool isReleased)
 	{
-
+		m_game.getInputManager().getMouseButton(button, isReleased);
 	}
 
 	virtual void onKeyPressed(FRKey k)
 	{
-		m_game.doodleMove(k);
+		m_game.getInputManager().getKeyPressed(k);
 	}
 
 	virtual void onKeyReleased(FRKey k)
 	{
-		m_game.doodleMove(k);
+		m_game.getInputManager().getKeyReleased(k);
 	}
 
 	virtual const char* GetTitle() override

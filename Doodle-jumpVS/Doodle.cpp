@@ -53,38 +53,6 @@ void Doodle::jump()
     }
 }
 
-void Doodle::setCheckMoveLeft()
-{
-    if (checkMoveLeft)
-    {
-        checkMoveLeft = false;
-        return;
-    }
-    checkMoveLeft = true;
-}
-
-void Doodle::setCheckMoveRight()
-{
-    if (checkMoveRight)
-    {
-        checkMoveRight = false;
-        return;
-    }
-    checkMoveRight = true;
-}
-
-void Doodle::moveLeftRight(FRKey key)
-{
-    if (key == FRKey::LEFT)
-    {
-        this->setCheckMoveLeft();
-    }
-    if (key == FRKey::RIGHT)
-    {
-        this->setCheckMoveRight();
-    }
-}
-
 void Doodle::goOutMapWidth()
 {
     if(m_x + DOODLE_WIDTH < 0)
