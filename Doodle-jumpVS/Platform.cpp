@@ -3,7 +3,7 @@
 Platform::Platform(const std::string& path, int _x, int _y)
     : BaseEntity(path, _x, _y)
 {
-    this->setSize(platformWidth, platformHeight);
+    this->setSize(PLATFORM_WIDTH, PLATFORM_HEIGHT);
 }
 
 Platform& Platform::operator=(const Platform& other)
@@ -15,14 +15,3 @@ Platform& Platform::operator=(const Platform& other)
     this->m_y = other.m_y;
     return *this;
 }
-
-int Platform::getPlatformHeight()
-{
-    return platformHeight;
-}
-
-int Platform::getPlatformWidth()
-{
-    return platformWidth;
-}
-

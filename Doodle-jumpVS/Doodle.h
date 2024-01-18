@@ -1,13 +1,13 @@
 #pragma once
 #include "BaseEntity.h"
-#include "Definitions.h"
+#include "Constans.h"
 
 class Doodle : public  BaseEntity
 {
 public:
     Doodle() = default;
     Doodle(const std::string& path, int _x, int _y);
-    Doodle& operator=(const Doodle&);
+    Doodle& operator=(const Doodle& other);
     void moveDown();
     void moveUp();
     void moveLeft();
@@ -16,22 +16,13 @@ public:
     void shoot();
     void setCheckMoveLeft();
     void setCheckMoveRight();
-    int getDoodleWidth() const;
-    int getDoodleHight() const;
-    static int getJumpHight();
     void moveLeftRight(FRKey key);
-    double getDy(){return dy;}
-    void setDy(double _dy) { dy = _dy; }
+    double getDy(){ return m_dy; }
+    void setDy(double _dy) { m_dy = _dy; }
     void goOutMapWidth();
 private:
-    const int doodleWidth = mapWidth/7;
-    const int doodleHight = mapHight/7;
-    static const int jumpHight = 200;
     bool checkMoveLeft = false;
     bool checkMoveRight = false;
-    double dx = m_x, dy = m_y;
-    const int speedUpDown = 20;
-    const int speedLeftRight = 20;
-    
+    double m_dx = m_x, m_dy = MAP_HEIGHT;
 };
 

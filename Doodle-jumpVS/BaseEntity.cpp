@@ -6,6 +6,11 @@ BaseEntity::BaseEntity(const std::string& pathSprite, int _x, int _y)
 	std::cout << m_entitySprite;
 }
 
+BaseEntity::~BaseEntity()
+{
+	destroySprite(m_entitySprite);
+}
+
 
 void BaseEntity::setSize(int width, int height)
 {

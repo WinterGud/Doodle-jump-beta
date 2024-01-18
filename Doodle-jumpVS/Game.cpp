@@ -1,42 +1,47 @@
 #include "game.h"
+#include "Constans.h"
+#include "Doodle.h"
+#include "PlatformsManager.h"
+#include "Platform.h"
 
+Game::Game()
+{}
 
 void Game::init()
 {
-    doodle = Doodle(doodlePath, 0, 700);
-    platformGenerator = PlatformGenerator();
-    platformGenerator.init();
+    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 0, 100);
+    m_platformManager.init();
 }
 
-void Game::draw()
+
+void Game::tick()
 {
-    doodle.draw();
-    platformGenerator.draw();
+    m_doodle->draw();
+    m_platformManager.tick();
 }
 
 void Game::logic()
 {
-    doodle.jump();
-    doodle.moveLeft();
-    doodle.moveRight();
-    doodle.goOutMapWidth();
+    m_doodle->jump();
+    m_doodle->moveLeft();
+    m_doodle->moveRight();
+    m_doodle->goOutMapWidth();
     checkPlatformsAndOther();
     
     moveScreen();
-    platformGenerator.createNewPlatforms();
-    platformGenerator.deletePlatforms();
+    m_platformManager.createNewPlatforms();
+    m_platformManager.deletePlatforms();
 }
 
 void Game::doodleMove(FRKey key)
 {
-    doodle.moveLeftRight(key);
+    m_doodle->moveLeftRight(key);
 }
 
 void Game::moveScreen()
 {
-    if(doodle.getY() < 400)
-        //if(doodle.getY() < mapHight - doodle.getJumpHight()) 
-        for (auto it : platformGenerator.platformVector)
+    if(m_doodle->getY() < 400)
+        for (auto it : m_platformManager.getPlatformsList())
         {
             it->setY(it->getY()+2);
         }
@@ -44,13 +49,13 @@ void Game::moveScreen()
 
 void Game::checkPlatformsAndOther()
 {
-    for(auto it : platformGenerator.platformVector)
+    for(auto it : m_platformManager.getPlatformsList())
     {
-        if((doodle.getX()+doodle.getDoodleWidth() > it->getX())
-            && (doodle.getX()+doodle.getDoodleWidth() < it->getX()+it->getPlatformWidth())
-            && (doodle.getY()+doodle.getDoodleHight()>it->getY())
-            && (doodle.getY()+doodle.getDoodleHight()<it->getY()+it->getPlatformHeight())
-            && (doodle.getDy()> 0)) doodle.setDy(-10);
+        if((m_doodle->getX() + DOODLE_WIDTH > it->getX())
+            && (m_doodle->getX() + DOODLE_WIDTH < it->getX() + PLATFORM_WIDTH)
+            && (m_doodle->getY() + DOODLE_HEIGHT > it->getY())
+            && (m_doodle->getY() + DOODLE_HEIGHT < it->getY() + PLATFORM_HEIGHT)
+            && (m_doodle->getDy() > 0)) m_doodle->setDy(-10);
             
     }
 }

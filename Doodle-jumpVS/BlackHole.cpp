@@ -1,1 +1,6 @@
 #include "BlackHole.h"
+
+namespace 
+{
+    
+}

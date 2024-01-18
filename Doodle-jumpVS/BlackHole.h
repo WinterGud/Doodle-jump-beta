@@ -1,7 +1,10 @@
 #pragma once
+#include "BaseEntity.h"
 
-class BlackHole
+class BlackHole : public BaseEntity
 {
 public:
+    
+private:
     
 };

@@ -1,6 +1,11 @@
 #include "Doodle.h"
+#include "Constans.h"
 
-#include "Platform.h"
+namespace 
+{
+    const int SPEED_UP_DOWN = 20;
+    const int SPEED_LEFT_RIGHT = 20;
+}
 
 Doodle::Doodle(const std::string& path, int _x, int _y)
     : BaseEntity(path, _x, _y)
@@ -8,24 +13,24 @@ Doodle::Doodle(const std::string& path, int _x, int _y)
 
 void Doodle::moveDown()
 {
-    m_y += speedUpDown;
+    m_y += SPEED_UP_DOWN;
 }
 
 void Doodle::moveUp()
 {
-    m_y -= speedUpDown;
+    m_y -= SPEED_UP_DOWN;
 }
 
 void Doodle::moveLeft()
 {
     if(checkMoveLeft)
-        m_x -= speedLeftRight;
+        m_x -= SPEED_LEFT_RIGHT;
 }
 
 void Doodle::moveRight()
 {
     if(checkMoveRight)
-        m_x += speedLeftRight;
+        m_x += SPEED_LEFT_RIGHT;
 }
 
 Doodle& Doodle::operator=(const Doodle& other)
@@ -40,9 +45,12 @@ Doodle& Doodle::operator=(const Doodle& other)
 
 void Doodle::jump()
 {
-    dy+=0.2;
-    m_y += dy;
-    if(m_y > mapHight - jumpHight) dy=-speedUpDown/2;
+    m_dy += 0.2;
+    m_y += m_dy;
+    if(m_y > MAP_HEIGHT)
+    {
+        m_dy = -SPEED_UP_DOWN/2;
+    }
 }
 
 void Doodle::setCheckMoveLeft()
@@ -65,37 +73,26 @@ void Doodle::setCheckMoveRight()
     checkMoveRight = true;
 }
 
-int Doodle::getDoodleHight() const
-{
-    return doodleHight;
-}
-
-int Doodle::getDoodleWidth() const
-{
-    return doodleWidth;
-}
-
-int Doodle::getJumpHight()
-{
-    return jumpHight;
-}
-
 void Doodle::moveLeftRight(FRKey key)
 {
     if (key == FRKey::LEFT)
+    {
         this->setCheckMoveLeft();
+    }
     if (key == FRKey::RIGHT)
+    {
         this->setCheckMoveRight();
+    }
 }
 
 void Doodle::goOutMapWidth()
 {
-    if(m_x + doodleWidth < 0)
+    if(m_x + DOODLE_WIDTH < 0)
     {
-        m_x = mapWidth;
+        m_x = MAP_WIDTH;
     }
-    if(m_x > mapWidth)
+    if(m_x > MAP_WIDTH)
     {
-        m_x = -doodleWidth;
+        m_x = -DOODLE_WIDTH;
     }
 }

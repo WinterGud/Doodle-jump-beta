@@ -1,6 +1,6 @@
 #pragma once
 #include "Framework.h"
-#include "Definitions.h"
+#include "Constans.h"
 #include "game.h"
 
 
@@ -8,17 +8,17 @@
 class MyFramework : public Framework {
 public:
 	
-	
+	MyFramework(): m_game(){}
 	virtual void PreInit(int& width, int& height, bool& fullscreen)
 	{
-		width = mapWidth;
-		height = mapHight;
+		width = MAP_WIDTH;
+		height = MAP_HEIGHT;
 		fullscreen = false;
 	}
 
 	virtual bool Init()
 	{
-		game.init();
+		m_game.init();
 		return true;
 	}
 
@@ -30,8 +30,8 @@ public:
 	virtual bool Tick()
 	{
 		drawTestBackground();
-		game.draw();
-		game.logic();
+		m_game.tick();
+		m_game.logic();
 		
 		return false;
 	}
@@ -48,12 +48,12 @@ public:
 
 	virtual void onKeyPressed(FRKey k)
 	{
-		game.doodleMove(k);
+		m_game.doodleMove(k);
 	}
 
 	virtual void onKeyReleased(FRKey k)
 	{
-		game.doodleMove(k);
+		m_game.doodleMove(k);
 	}
 
 	virtual const char* GetTitle() override
@@ -61,5 +61,5 @@ public:
 		return "Doodle Jump";
 	}
 private:
-	Game game;
+	Game m_game;
 };

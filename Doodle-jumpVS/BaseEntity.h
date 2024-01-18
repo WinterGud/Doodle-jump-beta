@@ -8,6 +8,7 @@ class BaseEntity
 public:
 	BaseEntity() = default;
 	BaseEntity(const std::string& pathSprite, int _x, int _y) ;
+	~BaseEntity();
 	int getX() const { return m_x; }
 	int getY() const { return m_y; }
 	void setX(int _x) { m_x = _x; }
@@ -18,5 +19,4 @@ public:
 protected:
 	Sprite* m_entitySprite = nullptr;
 	int m_x, m_y;
-	
 };

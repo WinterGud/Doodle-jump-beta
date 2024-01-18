@@ -1,19 +1,21 @@
 #pragma once
-#include "Doodle.h"
-#include "PlatformGenerator.h"
+#include <memory>
+#include "PlatformsManager.h"
 
+class Doodle;
+enum class FRKey;
 
 class Game
 {
 public:
-    Game() = default;
+    Game();
     void init();
-    void draw();
+    void tick();
     void logic();
     void doodleMove(FRKey key);
     void moveScreen();
     void checkPlatformsAndOther();
 private:
-    Doodle doodle;
-    PlatformGenerator platformGenerator;
+    std::shared_ptr<Doodle> m_doodle;
+    PlatformsManager m_platformManager;
 };
