@@ -4,7 +4,6 @@
 
 class Bullet;
 
-
 class BulletManager
 {
 public:

@@ -1,8 +1,7 @@
 #pragma once
 
-enum class FRKey; 
-
-enum class FRMouseButton; 
+enum class FRKey;
+enum class FRMouseButton;
 
 class InputManager
 {

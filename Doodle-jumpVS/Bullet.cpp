@@ -22,6 +22,6 @@ void Bullet::setDirectionAndCoof(int directionX, int directionY)
 
 void Bullet::moveBullet()
 {
-    m_x += m_coofX * BULLET_SPEED;
-    m_y += m_coofY * BULLET_SPEED;
+    m_x -= m_coofX * BULLET_SPEED;
+    m_y -= m_coofY * BULLET_SPEED;
 }

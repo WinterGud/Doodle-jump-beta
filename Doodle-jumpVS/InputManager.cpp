@@ -3,6 +3,7 @@
 enum class FRKey {
     RIGHT,
     LEFT,
+    DOWN,
     UP,
 };
 
