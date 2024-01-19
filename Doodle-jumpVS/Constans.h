@@ -6,7 +6,7 @@
 using std::string;
 const int MAP_WIDTH = 600;
 const int MAP_HEIGHT = 800;
-const int MOVE_MAP_DOWN = MAP_HEIGHT / 8;
+//const int MOVE_MAP_DOWN = MAP_HEIGHT / 8;
 const int DOODLE_WIDTH = MAP_WIDTH/7;
 const int DOODLE_HEIGHT = MAP_HEIGHT/7;
 const int DOODLE_JUMP_HEIGHT = 200;
@@ -18,6 +18,7 @@ const int ENEMY_WIDTH = MAP_WIDTH/7;
 const int ENEMY_HEIGHT = MAP_HEIGHT/6;
 const int BLACK_HOLE_WIDTH = MAP_WIDTH/7;
 const int BLACK_HOLE_HEIGHT = MAP_HEIGHT/4;
+const int MOVE_MAP_DOWN = 6;
 
 const std::string DOODLE_PATH = "..\\Data\\ghost-right-odskok@2x.png";
 const std::string HOLE_PATH = "..\\Data\\ghost-darkness@2x.png";

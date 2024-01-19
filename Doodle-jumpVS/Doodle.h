@@ -8,7 +8,6 @@ public:
     Doodle() = default;
     Doodle(const std::string& path, int _x, int _y);
     Doodle& operator=(const Doodle& other);
-    void moveDown();
     void moveUp();
     void moveLeft();
     void moveRight();
@@ -16,9 +15,10 @@ public:
     double getDy(){ return m_dy; }
     void setDy(double _dy) { m_dy = _dy; }
     void goOutMapWidth();
+    void moveDoodleDown();
 private:
     bool checkMoveLeft = false;
     bool checkMoveRight = false;
-    double m_dx = m_x, m_dy = MAP_HEIGHT;
+    double m_dx = m_x, m_dy = m_y;
 };
 

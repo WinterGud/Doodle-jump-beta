@@ -15,3 +15,9 @@ Platform& Platform::operator=(const Platform& other)
     this->m_y = other.m_y;
     return *this;
 }
+
+void Platform::setPostion(int x, int y)
+{
+    setX(x);
+    setY(y);
+}

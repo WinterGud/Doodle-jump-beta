@@ -3,18 +3,13 @@
 
 namespace 
 {
-    const int SPEED_UP_DOWN = 50;
+    const int SPEED_UP_DOWN = 20;
     const int SPEED_LEFT_RIGHT = 20;
 }
 
 Doodle::Doodle(const std::string& path, int _x, int _y)
     : BaseEntity(path, _x, _y)
 {}
-
-void Doodle::moveDown()
-{
-    m_y += SPEED_UP_DOWN;
-}
 
 void Doodle::moveUp()
 {
@@ -63,4 +58,9 @@ void Doodle::goOutMapWidth()
     {
         m_x = -DOODLE_WIDTH;
     }
+}
+
+void Doodle::moveDoodleDown()
+{
+    m_y += MOVE_MAP_DOWN;
 }

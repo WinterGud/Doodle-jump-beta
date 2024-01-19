@@ -9,9 +9,8 @@ Game::Game()
 
 void Game::init()
 {
-    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 0, 0);
+    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 0, 100);
     m_platformManager.init();
-    m_doodle->setY(700);
 }
 
 
@@ -57,6 +56,7 @@ void Game::moveScreen()
     if(m_doodle->getY() < 400)
     {
         m_platformManager.movePlatformDown();
+        m_doodle->moveDoodleDown();
     }
 }
 
@@ -90,13 +90,13 @@ void Game::bulletShoot()
 
 void Game::checkGameOver()
 {
-    if(m_doodle->getY() + DOODLE_HEIGHT > MAP_WIDTH)
+    if(m_doodle->getY()-DOODLE_HEIGHT > MAP_WIDTH)
     {
         m_gameOver = true;
     }
     if(m_gameOver)
     {
-        
+        m_doodle->~Doodle();
     }
 } 
 
