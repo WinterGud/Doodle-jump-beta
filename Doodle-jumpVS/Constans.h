@@ -19,6 +19,8 @@ const int ENEMY_HEIGHT = MAP_HEIGHT/6;
 const int BLACK_HOLE_WIDTH = MAP_WIDTH/7;
 const int BLACK_HOLE_HEIGHT = MAP_HEIGHT/4;
 const int MOVE_MAP_DOWN = 6;
+const int BULLET_WIDTH = 10;
+const int BULLET_HEIGHT = 10;
 
 const std::string DOODLE_PATH = "..\\Data\\ghost-right-odskok@2x.png";
 const std::string HOLE_PATH = "..\\Data\\ghost-darkness@2x.png";

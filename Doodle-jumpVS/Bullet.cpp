@@ -1,10 +1,5 @@
 #include "Bullet.h"
-
-namespace 
-{
-    const int BULLET_WIDTH = 10;
-    const int BULLET_HEIGHT = 10;
-}
+#include "Constans.h"
 
 Bullet::Bullet(const std::string path, int x, int y)
     : BaseEntity(path, x, y)

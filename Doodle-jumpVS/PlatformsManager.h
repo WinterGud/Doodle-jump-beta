@@ -10,6 +10,7 @@ class PlatformsManager
 public:
     using platformsList = std::vector<std::shared_ptr<Platform>>;
     PlatformsManager();
+    PlatformsManager& operator=(const PlatformsManager&);
     void tick() const;
     void init();
     void createNewPlatforms();

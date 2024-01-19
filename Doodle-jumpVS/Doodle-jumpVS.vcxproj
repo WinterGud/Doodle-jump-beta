@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="BaseEntity.cpp" />
     <ClCompile Include="BlackHole.cpp" />
+    <ClCompile Include="BlackHoleManager.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Doodle.cpp" />
@@ -153,11 +154,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlatformsManager.cpp" />
-    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseEntity.h" />
     <ClInclude Include="BlackHole.h" />
+    <ClInclude Include="BlackHoleManager.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Constans.h" />
@@ -169,7 +170,6 @@
     <ClInclude Include="MyFramework.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlatformsManager.h" />
-    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

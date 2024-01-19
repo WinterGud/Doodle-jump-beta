@@ -8,7 +8,7 @@ Platform::Platform(const std::string& path, int _x, int _y)
 
 Platform& Platform::operator=(const Platform& other)
 {
-    if(this->m_entitySprite == other.m_entitySprite)
+    if (this->m_entitySprite == other.m_entitySprite)
         return *this;
     this->m_entitySprite = other.m_entitySprite;
     this->m_x = other.m_x;

@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseEntity.h"
-#include "Constans.h"
+
 
 class Bullet : public BaseEntity
 {

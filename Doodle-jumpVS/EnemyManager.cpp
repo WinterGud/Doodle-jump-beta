@@ -19,9 +19,17 @@ void EnemyManager::deleteEnemies()
 {
     for (int i = 0; i < m_enemiesList.size(); i++)
     {
-        if(m_enemiesList[i]->getY() < MAP_WIDTH)
+        if (m_enemiesList[i]->getY() > MAP_WIDTH)
         {
             m_enemiesList.erase(m_enemiesList.begin() + i, m_enemiesList.begin() + (i + 1));
         }
+    }
+}
+
+void EnemyManager::moveEnemiesDown() const
+{
+    for (int i = 0; i < m_enemiesList.size(); i++)
+    {
+        m_enemiesList[i]->setY(m_enemiesList[i]->getY() + MOVE_MAP_DOWN);
     }
 }

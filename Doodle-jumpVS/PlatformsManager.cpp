@@ -8,6 +8,16 @@ PlatformsManager::PlatformsManager()
 {
 }
 
+PlatformsManager& PlatformsManager::operator=(const PlatformsManager& other)
+{
+    if (m_platformList == other.m_platformList)
+        return *this;
+    m_platformList = other.m_platformList;
+    m_platformWithMotionList = other.m_platformWithMotionList;
+    return *this;
+}
+
+
 void PlatformsManager::tick() const
 {
     for (auto it : m_platformList)
@@ -92,6 +102,5 @@ void PlatformsManager::moveMotionPlatforms() const
         {
             it->setX(1);
         }
-    
     }
 }
