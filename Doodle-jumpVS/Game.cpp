@@ -9,8 +9,9 @@ Game::Game()
 
 void Game::init()
 {
-    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 200, 100);
+    m_doodle = std::make_shared<Doodle>(DOODLE_PATH, 0, 0);
     m_platformManager.init();
+    m_doodle->setY(700);
 }
 
 
@@ -54,10 +55,9 @@ void Game::doodleMove()
 void Game::moveScreen()
 {
     if(m_doodle->getY() < 400)
-        for (auto it : m_platformManager.getPlatformsList())
-        {
-            it->setY(it->getY()+2);
-        }
+    {
+        m_platformManager.movePlatformDown();
+    }
 }
 
 void Game::checkPlatformsAndOther()
@@ -94,5 +94,13 @@ void Game::checkGameOver()
     {
         m_gameOver = true;
     }
+    if(m_gameOver)
+    {
+        
+    }
 } 
 
+void Game::spawnEnemy()
+{
+    
+}

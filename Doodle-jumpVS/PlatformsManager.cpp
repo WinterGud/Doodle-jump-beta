@@ -17,7 +17,7 @@ void PlatformsManager::tick() const
 
 void PlatformsManager::init()
 {
-     m_platformList.push_back(std::make_shared<Platform>(STANDART_PLATFORM_PATH, m_randMapWidth(m_gen), MAP_HEIGHT-100));
+     m_platformList.push_back(std::make_shared<Platform>(STANDART_PLATFORM_PATH, 0, MAP_HEIGHT-10));
      m_randHeightToNextPlatform = std::uniform_int_distribution<>
      (-m_platformList.back()->getY()-300,
      m_platformList.back()->getY());
@@ -50,5 +50,13 @@ void PlatformsManager::deletePlatforms()
         {
             m_platformList.erase(m_platformList.begin()+i, m_platformList.begin()+i+1);
         }
+    }
+}
+
+void PlatformsManager::movePlatformDown() const
+{
+    for (auto it : m_platformList)
+    {
+        it->setY(it->getY()+2);
     }
 }

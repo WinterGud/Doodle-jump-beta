@@ -14,6 +14,7 @@ public:
     void init();
     void createNewPlatforms();
     void deletePlatforms();
+    void movePlatformDown() const;
     platformsList& getPlatformsList(){ return m_platformList; }
 private:
     std::vector<std::shared_ptr<Platform>> m_platformList;

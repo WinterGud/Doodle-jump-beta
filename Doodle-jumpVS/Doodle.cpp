@@ -3,7 +3,7 @@
 
 namespace 
 {
-    const int SPEED_UP_DOWN = 20;
+    const int SPEED_UP_DOWN = 50;
     const int SPEED_LEFT_RIGHT = 20;
 }
 
