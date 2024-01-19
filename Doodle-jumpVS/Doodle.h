@@ -1,34 +1,24 @@
 #pragma once
 #include "BaseEntity.h"
-#include "Definitions.h"
+#include "Constans.h"
 
 class Doodle : public  BaseEntity
 {
 public:
     Doodle() = default;
     Doodle(const std::string& path, int _x, int _y);
-    Doodle& operator=(const Doodle&);
-    void moveDown();
+    Doodle& operator=(const Doodle& other);
     void moveUp();
-    void shoot();
     void moveLeft();
     void moveRight();
     void jump();
-    void setCheckMoveLeft();
-    void setCheckMoveRight();
-    void setIsFall(bool);
-    int getDoodleWidth() const;
-    int getDoodleHeight() const;
-    static int getJumpHight();
-    void moveLeftRight(FRKey key);
+    double getDy(){ return m_dy; }
+    void setDy(double _dy) { m_dy = _dy; }
+    void goOutMapWidth();
+    void moveDoodleDown();
 private:
-    const int doodleWidth = mapWidth/7;
-    const int doodleHeight = mapHight/7;
-    static const int jumpHight = 200;
     bool checkMoveLeft = false;
     bool checkMoveRight = false;
-    int count = 0;
-    const int speedUpDown = 1;
-    bool isFall = true;
+    double m_dx = m_x, m_dy = m_y;
 };
 

@@ -3,12 +3,12 @@
 Platform::Platform(const std::string& path, int _x, int _y)
     : BaseEntity(path, _x, _y)
 {
-    this->setSize(platformWidth, platformHeight);
+    this->setSize(PLATFORM_WIDTH, PLATFORM_HEIGHT);
 }
 
 Platform& Platform::operator=(const Platform& other)
 {
-    if(this->m_entitySprite == other.m_entitySprite)
+    if (this->m_entitySprite == other.m_entitySprite)
         return *this;
     this->m_entitySprite = other.m_entitySprite;
     this->m_x = other.m_x;
@@ -16,13 +16,8 @@ Platform& Platform::operator=(const Platform& other)
     return *this;
 }
 
-int Platform::getPlatformHeight()
+void Platform::setPostion(int x, int y)
 {
-    return platformHeight;
+    setX(x);
+    setY(y);
 }
-
-int Platform::getPlatformWidth()
-{
-    return platformWidth;
-}
-

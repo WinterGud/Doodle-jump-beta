@@ -1,9 +1,14 @@
 #include "BaseEntity.h"
 
-BaseEntity::BaseEntity(const std::string& pathSprite, int _x, int _y)
-	: m_entitySprite(createSprite(pathSprite.c_str())), m_x(_x), m_y(_y)
+BaseEntity::BaseEntity(const std::string& pathSprite, int x, int y)
+	: m_entitySprite(createSprite(pathSprite.c_str())), m_x(x), m_y(y)
 {
 	std::cout << m_entitySprite;
+}
+
+BaseEntity::~BaseEntity()
+{
+	destroySprite(m_entitySprite);
 }
 
 

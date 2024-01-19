@@ -142,20 +142,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseEntity.cpp" />
+    <ClCompile Include="BlackHole.cpp" />
+    <ClCompile Include="BlackHoleManager.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Doodle.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Platform.cpp" />
-    <ClCompile Include="PlatformGenerator.cpp" />
+    <ClCompile Include="PlatformsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseEntity.h" />
-    <ClInclude Include="Definitions.h" />
+    <ClInclude Include="BlackHole.h" />
+    <ClInclude Include="BlackHoleManager.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="Constans.h" />
     <ClInclude Include="Doodle.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="MyFramework.h" />
     <ClInclude Include="Platform.h" />
-    <ClInclude Include="PlatformGenerator.h" />
+    <ClInclude Include="PlatformsManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
